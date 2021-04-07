@@ -1,8 +1,6 @@
 # MNIST
-<br>
 ### Overview 
-Simple pytorch implementation of MNIST dataset classification<br>
-目录结构：<br>
+Simple pytorch implementation of MNIST dataset classification
 
 ### Code structure
 * [`mnist`](mnist)： mnist数据集存放文件夹
@@ -93,8 +91,8 @@ python optimizer.py
 7）具体的batchsize的选取和训练集的样本数目相关。<br>
 #### Activate_function
 训练过程中activate function分别取ReLU、Sigmoid、Tanh时的损失和准确率变化曲线(其他参数：batch size使用64，loss function使用BCELoss，optimizer使用SGD)
-![Activate_function](activate_function/Activate_function_loss.png)
-![Activate_function](activate_function/Activate_function_acc.png)
+![Activate_function](activate_function/activate_function_loss.png)
+![Activate_function](activate_function/activate_function_acc.png)
 1）sigmoid函数的输出映射在（0,1）之间，单调连续，输出范围有限，优化稳定。求导容易。幂运算，计算成本高。导数值小于1，容易出现梯度消失。具体来说就是当x很小或很大时，存在导数很小的情况。另外，神经网络主要的训练方法是BP算法，BP算法的基础是导数的链式法则，也就是多个导数的乘积。而sigmoid的导数最大为0.25，多个小于等于0.25的数值相乘，其运算结果很小。随着神经网络层数的加深，梯度后向传播到浅层网络时，基本无法引起参数的扰动，也就是没有将loss的信息传递到浅层网络，这样网络就无法训练学习了。这就是所谓的梯度消失。Sigmoid 函数的输出不是以零为中心的，这会导致神经网络收敛较慢。<br>
 2）双曲正切函数，tanh函数输出以0为中心，区间为[−1,1]，tanh可以想象成两个sigmoid函数放在一起，性能要高于sigmoid函数。Tanh函数是 0 均值的，因此实际应用中 Tanh 会比 sigmoid 更好。但是仍然存在梯度饱和与exp计算的问题。<br>
 3）线性整流函数，又称修正线性单元，是一种人工神经网络中常用的激活函数，通常指代以斜坡函数及其变种为代表的非线性函数。<br>
