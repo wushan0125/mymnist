@@ -37,17 +37,16 @@ Simple pytorch implementation of MNIST dataset classification<br>
 ### Dependencies
 ```
 python 3.8.0
-```<br>
+```
 ```
 pytorch 1.6.0
-```<br>
+```
 ```
 numpy
-```<br>
+```
 ```
 matplotlib
 ```
-<br>
 
 ### Usage
 1. 加载数据
